@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   	<head>
+		<meta charset = “utf-8”>
+		<meta name="viewport" content="width=device-width,	</body>
+</html> initial-scale=1">
+ <link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<title> Photos/vidéos </title>
+	</head>
+	<body>
+<a href="accueil.html" target="_blank"> <input type="button" value="Page d'acceuil"> </a>
+
+<a href="profil.html" target="_blank"> <input type="button" value="Profil"> </a>
+<a href="photo.html" target="_blank"> <input type="button" value="Photos/videos"> </a>
+<a href="messagerie.html" target="_blank"> <input type="button" value="Messagerie"> </a>
+<a href="reseau.html" target="_blank"> <input type="button" value="Réseau"> </a>
+<a href="notification.html" target="_blank"> <input type="button" value="Notifications"> </a>
+<a href="emplois.html" target="_blank"> <input type="button" value="Emplois"> </a>
+
+
+
+<form action="photo.php" method="post" enctype="multipart/form-data">
+        <p>
+        	<br /> <br />
+        	<h3> Vos photos : <h3><br />
+           
+            <h6> <input type="submit" value="ajouter une image" /> </h6>
+             <p>
+            <label for="imaged">Image : </label><input type="file" name="imaged" id="imaged" /><br />
+            <label for="validation">Valider : </label><input type="submit" name="validation" id="validation" value="Envoyer" />
+        </p>
+        </p>
+</form>
+<img src="image1.jpg" alt="Paris" height="100" width="100"/>
+
+<!-- //<img src="image1.jpg" alt="Paris" height="100" width="100"/> -->
+	</body>
+</html>
