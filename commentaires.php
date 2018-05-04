@@ -30,6 +30,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])) {
 
 	<h2>Evenements:</h2>
 	<p><?= $evenements['contenu'] ?></p>
+	
+
 
 	<br/><br/>
 	
@@ -39,6 +41,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])) {
 		
 		<textarea name="commentaire" placeholder="Votre commentaire..."></textarea><br/>
 		<input type="submit" value="Poster mon commentaire" name="submit_commentaire" />
+		<input type="submit" value="Like" name="like"/>
 	</form>
 
 	<?php if(isset($c_msg)) { echo $c_msg; } ?>
