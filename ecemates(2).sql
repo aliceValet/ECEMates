@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 05 mai 2018 à 12:22
+-- Généré le :  sam. 05 mai 2018 à 17:10
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -94,6 +94,30 @@ INSERT INTO `commentaire` (`id`, `commentaires`, `id_evenement`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `entreprise`
+--
+
+DROP TABLE IF EXISTS `entreprise`;
+CREATE TABLE IF NOT EXISTS `entreprise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `Intituleduposte` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `entreprise`
+--
+
+INSERT INTO `entreprise` (`id`, `Nom`, `mail`, `logo`, `Intituleduposte`) VALUES
+(1, 'Airbus', 'airbus@france.fr', '6.png', 'Ingénieur d\'affaire'),
+(2, 'Google', 'goole@gmail.irish', '6.png', 'Ingénieur Système d\'information');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `evenements`
 --
 
@@ -125,21 +149,19 @@ CREATE TABLE IF NOT EXISTS `membres` (
   `pseudo` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `motdepasse` text NOT NULL,
-  `avatar` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `membres`
 --
 
-INSERT INTO `membres` (`id`, `pseudo`, `mail`, `motdepasse`, `avatar`) VALUES
-(1, 'pm', 'mail@hotmail.fr', 'poipo', ''),
-(2, 'luc', 'mail1@hotmail.fr', 'a00191c823794a7fbb694b85131353f26b509f98', ''),
-(3, 'luc1', 'mailpo@hotmail.fr', '58061aa544398a798e33181a443b15b7746fab16', ''),
-(4, 'Clara', 'clara@hotmail.fr', 'ef781432b4a064adc112a5ff28aea85959e17e3a', ''),
-(5, 'oula', 'oula@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', ''),
-(6, 'delphine', 'manolo@gmail.com', '7b52009b64fd0a2a49e6d8a939753077792b0554', '6.jpg');
+INSERT INTO `membres` (`id`, `pseudo`, `mail`, `motdepasse`) VALUES
+(1, 'pm', 'mail@hotmail.fr', 'poipo'),
+(2, 'luc', 'mail1@hotmail.fr', 'a00191c823794a7fbb694b85131353f26b509f98'),
+(4, 'Clara', 'clara@hotmail.fr', 'ef781432b4a064adc112a5ff28aea85959e17e3a'),
+(5, 'oula', 'oula@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(6, 'delphine', 'manolo@gmail.com', '7b52009b64fd0a2a49e6d8a939753077792b0554');
 
 -- --------------------------------------------------------
 
@@ -186,11 +208,36 @@ CREATE TABLE IF NOT EXISTS `reseau` (
 --
 
 INSERT INTO `reseau` (`Nom`, `Prenom`, `Contact_pro`, `mail`, `ID_reseau`) VALUES
-('carol', 'aheds', 1, 'mail@hdk.fr', 1),
+('carol', 'aheds', 0, 'mail@hdk.fr', 1),
 ('Franco', 'cloé', 0, 'pomioer@hotmail.fr', 2),
-('pool', 'pauline', 1, 'pom@hotmail.fr', 3),
-('Clhoeee', 'ljejf', 1, 'pompom@hotmail.fr', 4),
-('Manolo', 'Luki', 1, 'luki@hotmal.fr', 5);
+('pool', 'pauline', 0, 'pom@hotmail.fr', 3),
+('Clhoeee', 'ljejf', 0, 'pompom@hotmail.fr', 4),
+('Manolo', 'Luki', 0, 'luki@hotmal.fr', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reseau_pro`
+--
+
+DROP TABLE IF EXISTS `reseau_pro`;
+CREATE TABLE IF NOT EXISTS `reseau_pro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mail` varchar(255) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Prenom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reseau_pro`
+--
+
+INSERT INTO `reseau_pro` (`id`, `mail`, `Nom`, `Prenom`) VALUES
+(1, 'poutine.vladimir@russie.fr', 'Poutine', 'Vladimir'),
+(2, 'jeanmarc.hereault@france.fr', 'Herrault', 'Jean-Marc'),
+(3, 'Segado@edu.ecefr', 'Segado', 'Jean-pierre'),
+(4, 'Pape@vatican.fr', 'Monsieur', 'LePape');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
