@@ -6,6 +6,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])) {
    $article = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
    $article->execute(array($getid));
    $article = $article->fetch();
+   
    if(isset($_POST['submit_commentaire'])) {
       if(isset($_POST['pseudo'],$_POST['commentaire']) AND !empty($_POST['pseudo']) AND !empty($_POST['commentaire'])) {
          $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -23,7 +24,26 @@ if(isset($_GET['id']) AND !empty($_GET['id'])) {
    }
    $commentaires = $bdd->prepare('SELECT * FROM commentaires WHERE id_article = ? ORDER BY id DESC');
    $commentaires->execute(array($getid));
+
+   if (isset ($_GET['id'])) { $variable = $_GET["id"]; }
+   else {
+      $variable = 1;
+   }
+
+$commentaire = "<a href='commentaire.php?id=".$variable." '>Accueil</a>";
+$profil= "<a href='profil.php?id=".$variable." '>Profil</a>";
+$photo= "<a href='photo.php?id=".$variable." '>Photos/videos</a>";
+
+$messagerie= "<a href='reception.php'>Messagerie</a>";
 ?>
+
+      <div id="menus">
+&bull;<?php echo $commentaire; ?> 
+&bull;<?php echo $profil; ?> 
+&bull;<?php echo $photo; ?> 
+&bull;<?php echo $messagerie; ?> 
+&bull;
+</div>
 <h2>Article:</h2>
 <p><?= $article['contenu'] ?></p>
 <br />
@@ -33,11 +53,11 @@ if(isset($_GET['id']) AND !empty($_GET['id'])) {
    <textarea name="commentaire" placeholder="Votre commentaire..."></textarea><br />
    <input type="submit" value="Poster mon commentaire" name="submit_commentaire" />
 </form>
-<?php if(isset($c_msg)) { echo $c_msg; } ?>
+<!-- <?php if(isset($c_msg)) { echo $c_msg; } ?>
 <br /><br />
 <?php while($c = $commentaires->fetch()) { ?>
    <b><?= $c['pseudo'] ?>:</b> <?= $c['commentaire'] ?><br />
-<?php } ?>
+<?php } ?> -->
 <?php
 }
 ?>
